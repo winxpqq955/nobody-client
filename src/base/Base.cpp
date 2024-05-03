@@ -179,14 +179,14 @@ void Base::Init()
 	//JavaHook::init();
 	Menu::Init();
 	initModule();
-	//CreateThread(0, 0, (LPTHREAD_START_ROUTINE)KeyBoard::StartListen, 0, 0, 0);
+	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)KeyBoard::StartListen, 0, 0, 0);
 	if (version != FORGE_1_18_1)
 		InitUpdateMessge();
 
 	ResourceManager::getInstance().LoadAllResource();
 	Base::Running = true;
 	//SDK::Minecraft->gameSettings->SetFullscreenKeyToNull();
-	WebServerManager::getInstance().Start(8080);
+	WebServerManager::getInstance().Start(13337);
 	NotificationManager::getInstance().makeNotification("Press INSERT to open Gui", Type::INFO);
 	while (Base::Running)
 	{
