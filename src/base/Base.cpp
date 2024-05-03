@@ -22,6 +22,7 @@
 #include "moduleManager/modules/combat/teams.h"
 #include "moduleManager/modules/combat/reach.h"
 #include "moduleManager/modules/combat/velocity.h"
+#include "moduleManager/modules/combat/triggerBot.h"
 
 #include "moduleManager/modules/player/Scaffold.h"
 #include "moduleManager/modules/player/blink.h"
@@ -222,6 +223,7 @@ void Base::initModule() {
 		ModuleManager::getInstance().addModule<Velocity>(Velocity::getInstance());
 		ModuleManager::getInstance().addModule<Antibot>(Antibot::getInstance());
 		ModuleManager::getInstance().addModule<Teams>(Teams::getInstance());
+		ModuleManager::getInstance().addModule<TriggerBot>(TriggerBot::getInstance());
 	}
 
 	{

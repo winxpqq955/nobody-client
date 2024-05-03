@@ -44,7 +44,6 @@
     <ClCompile Include="ext\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\base\menu\hooks\wglSwapBuffers.cpp" />
     <ClCompile Include="src\base\menu\hooks\wndProc.cpp" />
-    <ClCompile Include="src\base\menu\renderMenu.cpp" />
     <ClCompile Include="src\base\menu\menu.cpp" />
     <ClCompile Include="src\base\RenderLoop.cpp" />
     <ClCompile Include="src\base\sdk\java\lang\String.cpp" />
@@ -145,6 +144,8 @@
     <ClCompile Include="src\base\jvm\utility\vm_helper.cpp" />
     <ClCompile Include="src\base\jvm\wrapper.cpp" />
     <ClCompile Include="src\base\resource\ResourceManager.cpp" />
+    <ClCompile Include="src\base\menu\RenderUtil.cpp" />
+    <ClCompile Include="src\base\moduleManager\modules\combat\TriggerBot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\base\moduleManager\modules\player\Scaffold.h" />
@@ -635,6 +636,7 @@
     <ClInclude Include="src\base\jvm\break\break_point_info.h" />
     <ClInclude Include="src\base\jvm\utility\vm_helper.h" />
     <ClInclude Include="src\base\jvm\wrapper.hpp" />
+    <ClInclude Include="src\base\moduleManager\modules\combat\TriggerBot.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

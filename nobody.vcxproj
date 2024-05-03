@@ -485,6 +485,7 @@
     <ClInclude Include="src\base\jvm\utility\vm_helper.h" />
     <ClInclude Include="src\base\menu\neverlose500.h" />
     <ClInclude Include="src\base\menu\neverlose900.h" />
+    <ClInclude Include="src\base\moduleManager\modules\combat\TriggerBot.h" />
     <ClInclude Include="src\base\moduleManager\modules\visual\BedESP.h" />
     <ClInclude Include="src\base\moduleManager\modules\visual\ItemESP.h" />
     <ClInclude Include="src\base\sdk\net\minecraft\client\network\NetworkManger.h" />
@@ -636,6 +637,7 @@
     <ClCompile Include="src\base\jvm\utility\jvm_internal.cpp" />
     <ClCompile Include="src\base\jvm\utility\jvm_static.cpp" />
     <ClCompile Include="src\base\jvm\utility\vm_helper.cpp" />
+    <ClCompile Include="src\base\moduleManager\modules\combat\TriggerBot.cpp" />
     <ClCompile Include="src\base\moduleManager\modules\visual\BedESP.cpp" />
     <ClCompile Include="src\base\moduleManager\modules\visual\ItemESP.cpp" />
     <ClCompile Include="src\base\resource\ResourceManager.cpp" />
