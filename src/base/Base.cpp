@@ -180,9 +180,13 @@ void Base::Init()
 	//JavaHook::init();
 	Menu::Init();
 	initModule();
-	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)KeyBoard::StartListen, 0, 0, 0);
-	if (version != FORGE_1_18_1)
+
+	if (version != FORGE_1_18_1) {
 		InitUpdateMessge();
+	}
+	else {
+		CreateThread(0, 0, (LPTHREAD_START_ROUTINE)KeyBoard::StartListen, 0, 0, 0);
+	}
 
 	ResourceManager::getInstance().LoadAllResource();
 	Base::Running = true;
@@ -197,6 +201,20 @@ void Base::Init()
 			else
 				Borderless::Enable(Menu::HandleWindow);
 		}*/
+		if (Base::version == FORGE_1_18_1)
+		{
+			while (!Menu::keyEvents.empty())
+			{
+				auto& event = Menu::keyEvents.front();
+				Menu::keyEvents.pop();
+				Base::justPressed = true;
+				if (event.Key == Menu::Keybind)
+					Menu::Open = !Menu::Open;
+				if (event.Key == VK_ESCAPE && Menu::Open)
+					Menu::Open = false;
+				ModuleManager::getInstance().ProcessKeyEvent(event.Key);
+			}
+		}
 
 		EventManager::getInstance().call(EventUpdate());
 
@@ -240,7 +258,7 @@ void Base::initModule() {
 		ModuleManager::getInstance().addModule<ItemESP>(ItemESP::getInstance());
 		//Dont know why BedESP may causes crashes in forge 1.12.2 but stable in lunar
 		if (version == LUNAR_1_12_2)ModuleManager::getInstance().addModule<BedESP>(BedESP::getInstance());
-		if (version == VANILLA_1_8_9 or version == LUNAR_1_8_9 or version == FORGE_1_8_9 )ModuleManager::getInstance().addModule<BlockESP>(BlockESP::getInstance());
+		if (version == VANILLA_1_8_9 or version == LUNAR_1_8_9 or version == FORGE_1_8_9)ModuleManager::getInstance().addModule<BlockESP>(BlockESP::getInstance());
 	}
 
 	{
