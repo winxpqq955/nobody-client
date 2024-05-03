@@ -1,8 +1,6 @@
 #include "../menu.h"
 
 #include <gl/GL.h>
-#include <GL/glcorearb.h>
-#include <GL/glext.h>
 #include <mutex>
 #include <Shlobj.h>
 #include "../../../../ext/imgui/imgui.h"
@@ -203,8 +201,9 @@ inline ImTextureID glLoadTextureFromMemory(const unsigned char* buffer, int size
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+	//GL_CLAMP_TO_BORDER                0x812D 
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, 0x812D);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, 0x812D);
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, false, GL_RGBA, GL_UNSIGNED_BYTE, data);
 	stbi_image_free(data);
